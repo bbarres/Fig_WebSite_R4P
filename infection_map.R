@@ -44,6 +44,7 @@ png(filename="infdev01.png",width=800,height=550,units="px",res=220,
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
+title("Parcelle de la plante hôte",cex.main=2)
 dev.off()
 
 #the infected hosts
@@ -54,14 +55,28 @@ plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="orange",col="black",cex=2)
 points(rezi,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 png(filename="infdev03.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
-plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi,pch=21,bg="red",col="black",cex=2)
+points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+       cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #infected hosts after treatment
@@ -71,6 +86,11 @@ par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(rezi,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #then new infection and multiplication of resistant strains
@@ -83,14 +103,28 @@ plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="orange",col="black",cex=2)
 points(rezi2,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 png(filename="infdev06.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
-plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi2,pch=21,bg="red",col="black",cex=2)
+points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+       cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
@@ -100,6 +134,11 @@ par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(rezi2,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new multiplication of resistant strains
@@ -123,14 +162,28 @@ plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="orange",col="black",cex=2)
 points(rezi3,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 png(filename="infdev09.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
-plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi3,pch=21,bg="red",col="black",cex=2)
+points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+       cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
@@ -140,6 +193,11 @@ par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(rezi3,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #and after another cycle...
@@ -164,14 +222,29 @@ plot(plant_coord,pch=21,bg="green",col="black",cex=2
      frame.plot=TRUE)
 points(infected,pch=21,bg="orange",col="black",cex=2)
 points(rezi4,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 png(filename="infdev12.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
-plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+plot(plant_coord,pch=21,bg="green",col="black",cex=2
+     ,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi4,pch=21,bg="red",col="black",cex=2)
+points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+       cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
@@ -181,6 +254,11 @@ par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(rezi4,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #and after another cycle...
@@ -204,14 +282,28 @@ plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="orange",col="black",cex=2)
 points(rezi5,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 png(filename="infdev15.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
-plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi5,pch=21,bg="red",col="black",cex=2)
+points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+       cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
@@ -221,6 +313,11 @@ par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(rezi5,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #and after another cycle...
@@ -244,14 +341,28 @@ plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="orange",col="black",cex=2)
 points(rezi6,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 png(filename="infdev18.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
-plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi6,pch=21,bg="red",col="black",cex=2)
+points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+       cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
@@ -261,11 +372,22 @@ par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(rezi6,pch=21,bg="red",col="black",cex=2)
+title("  Déroulement de l'épidémie",cex.main=2, adj=0)
+points(35,28.5,cex=2,pch=21,col="black",bg="orange",xpd=TRUE)
+text(36,28.5,labels="bio-agresseur sensible",cex=1,xpd=TRUE,adj=c(0,NA))
+points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
+text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-oopt = ani.options(interval=1.2)
+
+
+#creating the .gif image
+oopt = ani.options(interval=1.4)
 im.convert('infdev*.png',output="selecR.gif",convert="convert")
 ani.options(oopt)
+
+par(op)
+
 
 
 
