@@ -6,9 +6,12 @@
 
 #loading the necessary package
 library(animation)
+ani.options(convert ="C:/Program Files/ImageMagick-7.0.5-Q16/convert.exe")
+
 #setting the working directory
 setwd("~/Work/Rfichiers/Githuber/Fig_WebSite_R4P")
 
+op<-par(mar=c(0,0,1,0))
 #spread of resistance strains in a field
 
 #simulate the coordinates of the hosts in the field
@@ -35,146 +38,234 @@ rezi2<-rezi2[!duplicated(rezi2),]
 infectivi<-round(dim(rezi2)[1]*0.8)
 rezi2<-rezi2[sample(1:dim(rezi2)[1],infectivi),]
 
+#the hosts before infection
+png(filename="infdev01.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+dev.off()
 
-saveGIF(
-  {
-  #the hosts
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  
-  #the infected hosts
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(infected,pch=21,bg="orange",col="black",cex=2)
-  points(rezi,pch=21,bg="red",col="black",cex=2)
-  
-  plot(plant_coord,pch=21,bg="yellow",col="black",cex=2)
-  text(26,14,labels="TRAITEMENT",cex=5)
-  
-  #infected hosts after treatment
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(rezi,pch=21,bg="red",col="black",cex=2)
-  
-  #then new infection and multiplication of resistant strains
-  inf_selec<-sample(dim(plant_coord)[1],60)
-  infected<-plant_coord[inf_selec,]
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(infected,pch=21,bg="orange",col="black",cex=2)
-  points(rezi2,pch=21,bg="red",col="black",cex=2)
-  
-  plot(plant_coord,pch=21,bg="yellow",col="black",cex=2)
-  text(26,14,labels="TRAITEMENT",cex=5)
-  
-  #new treatment
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(rezi2,pch=21,bg="red",col="black",cex=2)
-  
-  #new multiplication of resistant strains
-  rezi3<-rbind(rezi2,rezi2+1,rezi2-1,(cbind(rezi2[,1]+1,rezi2[,2])),
-               cbind(rezi2[,1]-1,rezi2[,2]),cbind(rezi2[,1],rezi2[,2]+1),
-               cbind(rezi2[,1],rezi2[,2]-1),cbind(rezi2[,1]-1,rezi2[,2]+1),
-               cbind(rezi2[,1]+1,rezi2[,2]-1))
-  #we remove the individuals with coordinates falling outside the "field"
-  rezi3<-rezi3[rezi3[,1]<51 & rezi3[,1]>0,]
-  rezi3<-rezi3[rezi3[,2]<26 & rezi3[,2]>0,]
-  #some neighbour hosts are not infected
-  rezi3<-rezi3[!duplicated(rezi3),]
-  infectivi<-round(dim(rezi3)[1]*0.8)
-  rezi3<-rezi3[sample(1:dim(rezi3)[1],infectivi),]
-  inf_selec<-sample(dim(plant_coord)[1],60)
-  infected<-plant_coord[inf_selec,]
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(infected,pch=21,bg="orange",col="black",cex=2)
-  points(rezi3,pch=21,bg="red",col="black",cex=2)
-  
-  plot(plant_coord,pch=21,bg="yellow",col="black",cex=2)
-  text(26,14,labels="TRAITEMENT",cex=5)
-  
-  #new treatment
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(rezi3,pch=21,bg="red",col="black",cex=2)
-  
-  #and after another cycle...
-  rezi4<-rbind(rezi3,rezi3+1,rezi3-1,(cbind(rezi3[,1]+1,rezi3[,2])),
-               cbind(rezi3[,1]-1,rezi3[,2]),cbind(rezi3[,1],rezi3[,2]+1),
-               cbind(rezi3[,1],rezi3[,2]-1),cbind(rezi3[,1]-1,rezi3[,2]+1),
-               cbind(rezi3[,1]+1,rezi3[,2]-1))
-  #we remove the individuals with coordinates falling outside the "field"
-  rezi4<-rezi4[rezi4[,1]<51 & rezi4[,1]>0,]
-  rezi4<-rezi4[rezi4[,2]<26 & rezi4[,2]>0,]
-  #some neighbour hosts are not infected
-  rezi4<-rezi4[!duplicated(rezi4),]
-  infectivi<-round(dim(rezi4)[1]*0.8)
-  rezi4<-rezi4[sample(1:dim(rezi4)[1],infectivi),]
-  inf_selec<-sample(dim(plant_coord)[1],60)
-  infected<-plant_coord[inf_selec,]
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(infected,pch=21,bg="orange",col="black",cex=2)
-  points(rezi4,pch=21,bg="red",col="black",cex=2)
-  
-  plot(plant_coord,pch=21,bg="yellow",col="black",cex=2)
-  text(26,14,labels="TRAITEMENT",cex=5)
-  
-  #new treatment
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(rezi4,pch=21,bg="red",col="black",cex=2)
-  
-  #and after another cycle...
-  rezi5<-rbind(rezi4,rezi4+1,rezi4-1,(cbind(rezi4[,1]+1,rezi4[,2])),
-               cbind(rezi4[,1]-1,rezi4[,2]),cbind(rezi4[,1],rezi4[,2]+1),
-               cbind(rezi4[,1],rezi4[,2]-1),cbind(rezi4[,1]-1,rezi4[,2]+1),
-               cbind(rezi4[,1]+1,rezi4[,2]-1))
-  #we remove the individuals with coordinates falling outside the "field"
-  rezi5<-rezi5[rezi5[,1]<51 & rezi5[,1]>0,]
-  rezi5<-rezi5[rezi5[,2]<26 & rezi5[,2]>0,]
-  #some neighbour hosts are not infected
-  rezi5<-rezi5[!duplicated(rezi5),]
-  infectivi<-round(dim(rezi5)[1]*0.8)
-  rezi5<-rezi5[sample(1:dim(rezi5)[1],infectivi),]
-  inf_selec<-sample(dim(plant_coord)[1],60)
-  infected<-plant_coord[inf_selec,]
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(infected,pch=21,bg="orange",col="black",cex=2)
-  points(rezi5,pch=21,bg="red",col="black",cex=2)
-  
-  plot(plant_coord,pch=21,bg="yellow",col="black",cex=2)
-  text(26,14,labels="TRAITEMENT",cex=5)
-  
-  #new treatment
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(rezi5,pch=21,bg="red",col="black",cex=2)
-  
-  #and after another cycle...
-  rezi6<-rbind(rezi5,rezi5+1,rezi5-1,(cbind(rezi5[,1]+1,rezi5[,2])),
-               cbind(rezi5[,1]-1,rezi5[,2]),cbind(rezi5[,1],rezi5[,2]+1),
-               cbind(rezi5[,1],rezi5[,2]-1),cbind(rezi5[,1]-1,rezi5[,2]+1),
-               cbind(rezi5[,1]+1,rezi5[,2]-1))
-  #we remove the individuals with coordinates falling outside the "field"
-  rezi6<-rezi6[rezi6[,1]<51 & rezi6[,1]>0,]
-  rezi6<-rezi6[rezi6[,2]<26 & rezi6[,2]>0,]
-  #some neighbour hosts are not infected
-  rezi6<-rezi6[!duplicated(rezi6),]
-  infectivi<-round(dim(rezi6)[1]*0.8)
-  rezi6<-rezi6[sample(1:dim(rezi6)[1],infectivi),]
-  inf_selec<-sample(dim(plant_coord)[1],60)
-  infected<-plant_coord[inf_selec,]
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(infected,pch=21,bg="orange",col="black",cex=2)
-  points(rezi6,pch=21,bg="red",col="black",cex=2)
-  
-  plot(plant_coord,pch=21,bg="yellow",col="black",cex=2)
-  text(26,14,labels="TRAITEMENT",cex=5)
-  
-  #new treatment
-  plot(plant_coord,pch=21,bg="green",col="black",cex=2)
-  points(rezi6,pch=21,bg="red",col="black",cex=2)
-  
-  }
-  , movie.name="test.gif",convert="convert",cmd.fun=system, interval=1.5, 
-  ani.width=700, ani.height=300
+#the infected hosts
+png(filename="infdev02.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi,pch=21,bg="red",col="black",cex=2)
+dev.off()
 
-)
+png(filename="infdev03.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+text(26,14,labels="TRAITEMENT",cex=5)
+dev.off()
 
+#infected hosts after treatment
+png(filename="infdev04.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(rezi,pch=21,bg="red",col="black",cex=2)
+dev.off()
 
+#then new infection and multiplication of resistant strains
+inf_selec<-sample(dim(plant_coord)[1],60)
+infected<-plant_coord[inf_selec,]
+png(filename="infdev05.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi2,pch=21,bg="red",col="black",cex=2)
+dev.off()
 
+png(filename="infdev06.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+text(26,14,labels="TRAITEMENT",cex=5)
+dev.off()
+
+#new treatment
+png(filename="infdev07.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(rezi2,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+#new multiplication of resistant strains
+rezi3<-rbind(rezi2,rezi2+1,rezi2-1,(cbind(rezi2[,1]+1,rezi2[,2])),
+             cbind(rezi2[,1]-1,rezi2[,2]),cbind(rezi2[,1],rezi2[,2]+1),
+             cbind(rezi2[,1],rezi2[,2]-1),cbind(rezi2[,1]-1,rezi2[,2]+1),
+             cbind(rezi2[,1]+1,rezi2[,2]-1))
+#we remove the individuals with coordinates falling outside the "field"
+rezi3<-rezi3[rezi3[,1]<51 & rezi3[,1]>0,]
+rezi3<-rezi3[rezi3[,2]<26 & rezi3[,2]>0,]
+#some neighbour hosts are not infected
+rezi3<-rezi3[!duplicated(rezi3),]
+infectivi<-round(dim(rezi3)[1]*0.8)
+rezi3<-rezi3[sample(1:dim(rezi3)[1],infectivi),]
+inf_selec<-sample(dim(plant_coord)[1],60)
+infected<-plant_coord[inf_selec,]
+png(filename="infdev08.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi3,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+png(filename="infdev09.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+text(26,14,labels="TRAITEMENT",cex=5)
+dev.off()
+
+#new treatment
+png(filename="infdev10.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(rezi3,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+#and after another cycle...
+rezi4<-rbind(rezi3,rezi3+1,rezi3-1,(cbind(rezi3[,1]+1,rezi3[,2])),
+             cbind(rezi3[,1]-1,rezi3[,2]),cbind(rezi3[,1],rezi3[,2]+1),
+             cbind(rezi3[,1],rezi3[,2]-1),cbind(rezi3[,1]-1,rezi3[,2]+1),
+             cbind(rezi3[,1]+1,rezi3[,2]-1))
+#we remove the individuals with coordinates falling outside the "field"
+rezi4<-rezi4[rezi4[,1]<51 & rezi4[,1]>0,]
+rezi4<-rezi4[rezi4[,2]<26 & rezi4[,2]>0,]
+#some neighbour hosts are not infected
+rezi4<-rezi4[!duplicated(rezi4),]
+infectivi<-round(dim(rezi4)[1]*0.8)
+rezi4<-rezi4[sample(1:dim(rezi4)[1],infectivi),]
+inf_selec<-sample(dim(plant_coord)[1],60)
+infected<-plant_coord[inf_selec,]
+png(filename="infdev11.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2
+     ,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi4,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+png(filename="infdev12.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+text(26,14,labels="TRAITEMENT",cex=5)
+dev.off()
+
+#new treatment
+png(filename="infdev13.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(rezi4,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+#and after another cycle...
+rezi5<-rbind(rezi4,rezi4+1,rezi4-1,(cbind(rezi4[,1]+1,rezi4[,2])),
+             cbind(rezi4[,1]-1,rezi4[,2]),cbind(rezi4[,1],rezi4[,2]+1),
+             cbind(rezi4[,1],rezi4[,2]-1),cbind(rezi4[,1]-1,rezi4[,2]+1),
+             cbind(rezi4[,1]+1,rezi4[,2]-1))
+#we remove the individuals with coordinates falling outside the "field"
+rezi5<-rezi5[rezi5[,1]<51 & rezi5[,1]>0,]
+rezi5<-rezi5[rezi5[,2]<26 & rezi5[,2]>0,]
+#some neighbour hosts are not infected
+rezi5<-rezi5[!duplicated(rezi5),]
+infectivi<-round(dim(rezi5)[1]*0.8)
+rezi5<-rezi5[sample(1:dim(rezi5)[1],infectivi),]
+inf_selec<-sample(dim(plant_coord)[1],60)
+infected<-plant_coord[inf_selec,]
+png(filename="infdev14.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi5,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+png(filename="infdev15.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+text(26,14,labels="TRAITEMENT",cex=5)
+dev.off()
+
+#new treatment
+png(filename="infdev16.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(rezi5,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+#and after another cycle...
+rezi6<-rbind(rezi5,rezi5+1,rezi5-1,(cbind(rezi5[,1]+1,rezi5[,2])),
+             cbind(rezi5[,1]-1,rezi5[,2]),cbind(rezi5[,1],rezi5[,2]+1),
+             cbind(rezi5[,1],rezi5[,2]-1),cbind(rezi5[,1]-1,rezi5[,2]+1),
+             cbind(rezi5[,1]+1,rezi5[,2]-1))
+#we remove the individuals with coordinates falling outside the "field"
+rezi6<-rezi6[rezi6[,1]<51 & rezi6[,1]>0,]
+rezi6<-rezi6[rezi6[,2]<26 & rezi6[,2]>0,]
+#some neighbour hosts are not infected
+rezi6<-rezi6[!duplicated(rezi6),]
+infectivi<-round(dim(rezi6)[1]*0.8)
+rezi6<-rezi6[sample(1:dim(rezi6)[1],infectivi),]
+inf_selec<-sample(dim(plant_coord)[1],60)
+infected<-plant_coord[inf_selec,]
+png(filename="infdev17.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(infected,pch=21,bg="orange",col="black",cex=2)
+points(rezi6,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+png(filename="infdev18.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="yellow",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+text(26,14,labels="TRAITEMENT",cex=5)
+dev.off()
+
+#new treatment
+png(filename="infdev19.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="green",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+points(rezi6,pch=21,bg="red",col="black",cex=2)
+dev.off()
+
+oopt = ani.options(interval=1.2)
+im.convert('infdev*.png',output="test.gif",convert="convert")
+ani.options(oopt)
 
 
 
