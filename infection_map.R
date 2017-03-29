@@ -264,7 +264,7 @@ points(rezi6,pch=21,bg="red",col="black",cex=2)
 dev.off()
 
 oopt = ani.options(interval=1.2)
-im.convert('infdev*.png',output="test.gif",convert="convert")
+im.convert('infdev*.png',output="selecR.gif",convert="convert")
 ani.options(oopt)
 
 
