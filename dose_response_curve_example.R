@@ -95,9 +95,9 @@ if (temp[temp$dose==0,]$dead!=0) {
                 type="binomial")
 }
 plot(temp.mod,xlim=c(0,100000),type="obs",broken=FALSE,axes=FALSE,
-     xlab=expression(paste("Concentration en pesticide (échelle log) ",
-                           µg.litre^-1)),
-     ylab="Trait phénotypique",cex.lab=1.5,bty="n",
+     xlab=expression(paste("Pesticide concentration (log scale) ",
+                           µg.liter^-1)),
+     ylab="Phenotypic trait",cex.lab=1.5,bty="n",
      col=colist[as.numeric(temp$Rgeno[1])],pch=19)
 plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
      type="none",col=colist[as.numeric(temp$Rgeno[1])])
