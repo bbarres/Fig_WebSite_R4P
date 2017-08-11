@@ -27,8 +27,9 @@ clone_gen<-dummydat[dummydat$dose==0, 1:2]
 levels(dummydat$Rgeno)<-c(1,2,3)
 colist<-c("green3","darkorange","firebrick3")
 
-
-op<-par(mar=c(5.1,5.5,2.1,2.1))
+#DL50 figure en français
+op<-par(mar=c(5.1,5.5,3.6,2.1))
+DL50list<-c()
 temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
 if (temp[temp$dose==0,]$dead!=0) {
   temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
@@ -44,6 +45,8 @@ plot(temp.mod,xlim=c(0,100000),type="obs",broken=FALSE,axes=FALSE,
      col=colist[as.numeric(temp$Rgeno[1])],pch=19)
 plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
      type="none",col=colist[as.numeric(temp$Rgeno[1])])
+DL50list<-c(DL50list,ED(temp.mod,50,interval="delta",
+                        reference="control")[[1]])
 for (i in 2:dim(clone_gen)[1]) {
   temp<-dummydat[dummydat$ind_ID==clone_gen[i,1] & dummydat$tota!=0,]
   if (temp[temp$dose==0,]$dead!=0) {
@@ -57,6 +60,8 @@ for (i in 2:dim(clone_gen)[1]) {
        col=colist[as.numeric(temp$Rgeno[1])],pch=19)
   plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
        type="none",col=colist[as.numeric(temp$Rgeno[1])])
+  DL50list<-c(DL50list,ED(temp.mod,50,interval="delta",
+                          reference="control")[[1]])
 }
 par(op)
 
@@ -64,7 +69,57 @@ axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
 segments(1,0.5,100000,0.5,lwd=3,col="blue",lty=2)
+segments(DL50list[1],0,DL50list[1],0.5,lwd=3,col="blue",lty=2)
+segments(DL50list[2],0,DL50list[2],0.5,lwd=3,col="blue",lty=2)
+segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
+
+#export to .png 850 x 500 pixel
+
+#DL100 figure en français
+op<-par(mar=c(5.1,5.5,3.6,2.1))
+DL100list<-c()
+temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
+if (temp[temp$dose==0,]$dead!=0) {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+} else {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+}
+plot(temp.mod,xlim=c(0,100000),type="obs",broken=FALSE,axes=FALSE,
+     xlab=expression(paste("Concentration en pesticide (échelle log) ",
+                           µg.litre^-1)),
+     ylab="Trait phénotypique",cex.lab=1.5,bty="n",
+     col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+     type="none",col=colist[as.numeric(temp$Rgeno[1])])
+DL100list<-c(DL100list,ED(temp.mod,99,interval="delta",
+                        reference="control")[[1]])
+for (i in 2:dim(clone_gen)[1]) {
+  temp<-dummydat[dummydat$ind_ID==clone_gen[i,1] & dummydat$tota!=0,]
+  if (temp[temp$dose==0,]$dead!=0) {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  } else {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  }
+  plot(temp.mod,xlim=c(0,100000),type="obs",add=TRUE,
+       col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+  plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+       type="none",col=colist[as.numeric(temp$Rgeno[1])])
+  DL100list<-c(DL100list,ED(temp.mod,99,interval="delta",
+                            reference="control")[[1]])
+}
+par(op)
+
+axis(1,lwd=4,las=1)
+axis(2,lwd=4,las=1)
+box(bty="l",lwd=4)
 segments(1,1,100000,1,lwd=3,col="blue",lty=2)
+segments(DL100list[1],0,DL100list[1],1,lwd=3,col="blue",lty=2)
+segments(DL100list[2],0,DL100list[2],1,lwd=3,col="blue",lty=2)
+segments(DL100list[3],0,DL100list[3],1,lwd=3,col="blue",lty=2)
 
 #export to .png 850 x 500 pixel
 
@@ -84,8 +139,9 @@ clone_gen<-dummydat[dummydat$dose==0, 1:2]
 levels(dummydat$Rgeno)<-c(1,2,3)
 colist<-c("green3","darkorange","firebrick3")
 
-
-op<-par(mar=c(5.1,5.5,2.1,2.1))
+#DL50 figure in english
+op<-par(mar=c(5.1,5.5,3.6,2.1))
+DL50list<-c()
 temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
 if (temp[temp$dose==0,]$dead!=0) {
   temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
@@ -101,6 +157,8 @@ plot(temp.mod,xlim=c(0,100000),type="obs",broken=FALSE,axes=FALSE,
      col=colist[as.numeric(temp$Rgeno[1])],pch=19)
 plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
      type="none",col=colist[as.numeric(temp$Rgeno[1])])
+DL50list<-c(DL50list,ED(temp.mod,50,interval="delta",
+                        reference="control")[[1]])
 for (i in 2:dim(clone_gen)[1]) {
   temp<-dummydat[dummydat$ind_ID==clone_gen[i,1] & dummydat$tota!=0,]
   if (temp[temp$dose==0,]$dead!=0) {
@@ -114,6 +172,8 @@ for (i in 2:dim(clone_gen)[1]) {
        col=colist[as.numeric(temp$Rgeno[1])],pch=19)
   plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
        type="none",col=colist[as.numeric(temp$Rgeno[1])])
+  DL50list<-c(DL50list,ED(temp.mod,50,interval="delta",
+                          reference="control")[[1]])
 }
 par(op)
 
@@ -121,7 +181,58 @@ axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
 segments(1,0.5,100000,0.5,lwd=3,col="blue",lty=2)
+segments(DL50list[1],0,DL50list[1],0.5,lwd=3,col="blue",lty=2)
+segments(DL50list[2],0,DL50list[2],0.5,lwd=3,col="blue",lty=2)
+segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
+
+#export to .png 850 x 500 pixel
+
+
+#DL100 figure in english
+op<-par(mar=c(5.1,5.5,3.6,2.1))
+DL100list<-c()
+temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
+if (temp[temp$dose==0,]$dead!=0) {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+} else {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+}
+plot(temp.mod,xlim=c(0,100000),type="obs",broken=FALSE,axes=FALSE,
+     xlab=expression(paste("Pesticide concentration (log scale) ",
+                           µg.liter^-1)),
+     ylab="Phenotypic trait",cex.lab=1.5,bty="n",
+     col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+     type="none",col=colist[as.numeric(temp$Rgeno[1])])
+DL100list<-c(DL100list,ED(temp.mod,99,interval="delta",
+                          reference="control")[[1]])
+for (i in 2:dim(clone_gen)[1]) {
+  temp<-dummydat[dummydat$ind_ID==clone_gen[i,1] & dummydat$tota!=0,]
+  if (temp[temp$dose==0,]$dead!=0) {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  } else {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  }
+  plot(temp.mod,xlim=c(0,100000),type="obs",add=TRUE,
+       col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+  plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+       type="none",col=colist[as.numeric(temp$Rgeno[1])])
+  DL100list<-c(DL100list,ED(temp.mod,99,interval="delta",
+                            reference="control")[[1]])
+}
+par(op)
+
+axis(1,lwd=4,las=1)
+axis(2,lwd=4,las=1)
+box(bty="l",lwd=4)
 segments(1,1,100000,1,lwd=3,col="blue",lty=2)
+segments(DL100list[1],0,DL100list[1],1,lwd=3,col="blue",lty=2)
+segments(DL100list[2],0,DL100list[2],1,lwd=3,col="blue",lty=2)
+segments(DL100list[3],0,DL100list[3],1,lwd=3,col="blue",lty=2)
 
 #export to .png 850 x 500 pixel
 
