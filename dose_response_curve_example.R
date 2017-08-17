@@ -25,7 +25,7 @@ clone_gen<-dummydat[dummydat$dose==0, 1:2]
 #we change the coding for the genotype in order to have the color 
 #green, orange and red associated to the RR, RT and TT genotypes
 levels(dummydat$Rgeno)<-c(1,2,3)
-colist<-c("green3","darkorange","firebrick3")
+colist<-c("mediumseagreen","darkorange","firebrick3")
 
 #DL50 figure en français
 op<-par(mar=c(5.1,4.2,3.6,2.1))
@@ -137,7 +137,7 @@ clone_gen<-dummydat[dummydat$dose==0, 1:2]
 #we change the coding for the genotype in order to have the color 
 #green, orange and red associated to the RR, RT and TT genotypes
 levels(dummydat$Rgeno)<-c(1,2,3)
-colist<-c("green3","darkorange","firebrick3")
+colist<-c("mediumseagreen","darkorange","firebrick3")
 
 #DL50 figure in english
 op<-par(mar=c(5.1,4.2,3.6,2.1))
