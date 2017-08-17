@@ -68,10 +68,10 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
+segments(DL50list[1],-0.02,DL50list[1],0.5,lwd=3,col=colist[1],lty=2)
+segments(DL50list[2],-0.02,DL50list[2],0.5,lwd=3,col=colist[2],lty=2)
+segments(DL50list[3],-0.02,DL50list[3],0.5,lwd=3,col=colist[3],lty=2)
 segments(0.5,0.5,100000,0.5,lwd=3,col="blue",lty=2)
-segments(DL50list[1],0,DL50list[1],0.5,lwd=3,col="blue",lty=2)
-segments(DL50list[2],0,DL50list[2],0.5,lwd=3,col="blue",lty=2)
-segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
 
 #export to .png 850 x 500 pixel
 
@@ -116,10 +116,10 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
+segments(DL100list[1],-0.02,DL100list[1],1,lwd=3,col=colist[1],lty=2)
+segments(DL100list[2],-0.02,DL100list[2],1,lwd=3,col=colist[2],lty=2)
+segments(DL100list[3],-0.02,DL100list[3],1,lwd=3,col=colist[3],lty=2)
 segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
-segments(DL100list[1],0,DL100list[1],1,lwd=3,col="blue",lty=2)
-segments(DL100list[2],0,DL100list[2],1,lwd=3,col="blue",lty=2)
-segments(DL100list[3],0,DL100list[3],1,lwd=3,col="blue",lty=2)
 
 #export to .png 850 x 500 pixel
 
@@ -180,10 +180,10 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
+segments(DL50list[1],-0.02,DL50list[1],0.5,lwd=3,col=colist[1],lty=2)
+segments(DL50list[2],-0.02,DL50list[2],0.5,lwd=3,col=colist[2],lty=2)
+segments(DL50list[3],-0.02,DL50list[3],0.5,lwd=3,col=colist[3],lty=2)
 segments(0.5,0.5,100000,0.5,lwd=3,col="blue",lty=2)
-segments(DL50list[1],0,DL50list[1],0.5,lwd=3,col="blue",lty=2)
-segments(DL50list[2],0,DL50list[2],0.5,lwd=3,col="blue",lty=2)
-segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
 
 #export to .png 850 x 500 pixel
 
@@ -229,10 +229,10 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
+segments(DL100list[1],-0.02,DL100list[1],1,lwd=3,col=colist[1],lty=2)
+segments(DL100list[2],-0.02,DL100list[2],1,lwd=3,col=colist[2],lty=2)
+segments(DL100list[3],-0.02,DL100list[3],1,lwd=3,col=colist[3],lty=2)
 segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
-segments(DL100list[1],0,DL100list[1],1,lwd=3,col="blue",lty=2)
-segments(DL100list[2],0,DL100list[2],1,lwd=3,col="blue",lty=2)
-segments(DL100list[3],0,DL100list[3],1,lwd=3,col="blue",lty=2)
 
 #export to .png 850 x 500 pixel
 
