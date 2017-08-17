@@ -28,7 +28,7 @@ levels(dummydat$Rgeno)<-c(1,2,3)
 colist<-c("green3","darkorange","firebrick3")
 
 #DL50 figure en français
-op<-par(mar=c(5.1,5.5,3.6,2.1))
+op<-par(mar=c(5.1,4.2,3.6,2.1))
 DL50list<-c()
 temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
 if (temp[temp$dose==0,]$dead!=0) {
@@ -68,7 +68,7 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
-segments(1,0.5,100000,0.5,lwd=3,col="blue",lty=2)
+segments(0.5,0.5,100000,0.5,lwd=3,col="blue",lty=2)
 segments(DL50list[1],0,DL50list[1],0.5,lwd=3,col="blue",lty=2)
 segments(DL50list[2],0,DL50list[2],0.5,lwd=3,col="blue",lty=2)
 segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
@@ -76,7 +76,7 @@ segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
 #export to .png 850 x 500 pixel
 
 #DL100 figure en français
-op<-par(mar=c(5.1,5.5,3.6,2.1))
+op<-par(mar=c(5.1,4.2,3.6,2.1))
 DL100list<-c()
 temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
 if (temp[temp$dose==0,]$dead!=0) {
@@ -116,7 +116,7 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
-segments(1,1,100000,1,lwd=3,col="blue",lty=2)
+segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
 segments(DL100list[1],0,DL100list[1],1,lwd=3,col="blue",lty=2)
 segments(DL100list[2],0,DL100list[2],1,lwd=3,col="blue",lty=2)
 segments(DL100list[3],0,DL100list[3],1,lwd=3,col="blue",lty=2)
@@ -140,7 +140,7 @@ levels(dummydat$Rgeno)<-c(1,2,3)
 colist<-c("green3","darkorange","firebrick3")
 
 #DL50 figure in english
-op<-par(mar=c(5.1,5.5,3.6,2.1))
+op<-par(mar=c(5.1,4.2,3.6,2.1))
 DL50list<-c()
 temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
 if (temp[temp$dose==0,]$dead!=0) {
@@ -180,7 +180,7 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
-segments(1,0.5,100000,0.5,lwd=3,col="blue",lty=2)
+segments(0.5,0.5,100000,0.5,lwd=3,col="blue",lty=2)
 segments(DL50list[1],0,DL50list[1],0.5,lwd=3,col="blue",lty=2)
 segments(DL50list[2],0,DL50list[2],0.5,lwd=3,col="blue",lty=2)
 segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
@@ -189,7 +189,7 @@ segments(DL50list[3],0,DL50list[3],0.5,lwd=3,col="blue",lty=2)
 
 
 #DL100 figure in english
-op<-par(mar=c(5.1,5.5,3.6,2.1))
+op<-par(mar=c(5.1,4.2,3.6,2.1))
 DL100list<-c()
 temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
 if (temp[temp$dose==0,]$dead!=0) {
@@ -229,7 +229,7 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
-segments(1,1,100000,1,lwd=3,col="blue",lty=2)
+segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
 segments(DL100list[1],0,DL100list[1],1,lwd=3,col="blue",lty=2)
 segments(DL100list[2],0,DL100list[2],1,lwd=3,col="blue",lty=2)
 segments(DL100list[3],0,DL100list[3],1,lwd=3,col="blue",lty=2)
