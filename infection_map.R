@@ -22,6 +22,8 @@ op<-par(mar=c(0,0,1,0))
 #simulate the coordinates of the hosts in the field
 plant_coord<-cbind(rep((1:50),25),rep((1:25),each=50))
 
+
+#producing the different images for creating the animation####
 #we randomly select infected host
 inf_selec<-sample(dim(plant_coord)[1],40)
 infected<-plant_coord[inf_selec,]
@@ -385,7 +387,7 @@ text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 
-#creating the .gif image
+#creating the .gif image####
 oopt = ani.options(interval=2)
 im.convert('infdev*.png',output="selecR.gif",convert="convert")
 ani.options(oopt)
@@ -403,6 +405,7 @@ op<-par(mar=c(0,0,1,0))
 #simulate the coordinates of the hosts in the field
 plant_coord<-cbind(rep((1:50),25),rep((1:25),each=50))
 
+#producing the different images for creating the animation####
 #we randomly select infected host
 inf_selec<-sample(dim(plant_coord)[1],40)
 infected<-plant_coord[inf_selec,]
@@ -766,8 +769,8 @@ text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 
-#creating the .gif image
-oopt = ani.options(interval=1.4)
+#creating the .gif image####
+oopt = ani.options(interval=2)
 im.convert('infdev*.png',output="selecR_ENG.gif",convert="convert")
 ani.options(oopt)
 
