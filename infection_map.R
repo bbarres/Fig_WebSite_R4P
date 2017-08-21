@@ -76,7 +76,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
 title("  Déroulement de l'épidémie",cex.main=2, adj=0)
@@ -124,7 +124,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi2,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
 title("  Déroulement de l'épidémie",cex.main=2, adj=0)
@@ -183,7 +183,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi3,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
 title("  Déroulement de l'épidémie",cex.main=2, adj=0)
@@ -244,7 +244,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi4,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
 title("  Déroulement de l'épidémie",cex.main=2, adj=0)
@@ -303,7 +303,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi5,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
 title("  Déroulement de l'épidémie",cex.main=2, adj=0)
@@ -362,7 +362,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi6,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TRAITEMENT",cex=5)
 title("  Déroulement de l'épidémie",cex.main=2, adj=0)
@@ -458,7 +458,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TREATMENT",cex=5)
 title("  Evolution of the epidemic",cex.main=2, adj=0)
@@ -506,7 +506,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi2,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TREATMENT",cex=5)
 title("  Evolution of the epidemic",cex.main=2, adj=0)
@@ -565,7 +565,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi3,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TREATMENT",cex=5)
 title("  Evolution of the epidemic",cex.main=2, adj=0)
@@ -626,7 +626,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi4,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TREATMENT",cex=5)
 title("  Evolution of the epidemic",cex.main=2, adj=0)
@@ -685,7 +685,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi5,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TREATMENT",cex=5)
 title("  Evolution of the epidemic",cex.main=2, adj=0)
@@ -744,7 +744,7 @@ plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
      frame.plot=TRUE)
 points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
 points(rezi6,pch=21,bg="red",col="black",cex=2)
-points(plant_coord,pch=21,bg=rgb(0,0,1,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
+points(plant_coord,pch=21,bg=rgb(1,0.9,0,alpha=0.4),col=rgb(0,0,1,alpha=0.4),
        cex=2)
 text(26,14,labels="TREATMENT",cex=5)
 title("  Evolution of the epidemic",cex.main=2, adj=0)
