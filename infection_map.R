@@ -13,7 +13,7 @@ setwd("~/Work/Rfichiers/Githuber/Fig_WebSite_R4P")
 
 
 ###############################################################################
-#The figure in French
+#The epidemic figure in French
 ###############################################################################
 
 op<-par(mar=c(0,0,1,0))
@@ -396,7 +396,7 @@ par(op)
 
 
 ###############################################################################
-#The figure in English
+#The epidemic figure in English
 ###############################################################################
 
 op<-par(mar=c(0,0,1,0))
@@ -776,6 +776,48 @@ ani.options(oopt)
 
 par(op)
 
+
+###############################################################################
+#The geographical management of pesticide resistance
+###############################################################################
+
+op<-par(mar=c(0,0,1,0))
+
+#simulate the coordinates of the hosts in the field
+plant_coord<-cbind(rep((1:200),100),rep((1:100),each=200))
+plot(plant_coord,pch=21,bg="grey45",col="black",cex=1,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+field_a<-cbind(rep((1:50),12),rep((1:12),each=50))
+points(field_a,col="red",pch=21)
+field_b<-cbind(rep((41:70),30),rep((21:50),each=30))
+points(field_b,col="blue",pch=21)
+field_c<-cbind(rep((11:25),50),rep((51:100),each=15))
+points(field_c,col="green",pch=21)
+field_d<-cbind(rep((121:200),40),rep((61:100),each=80))
+points(field_d,col="violet",pch=21)
+field_e<-cbind(rep((86:125),50),rep((1:50),each=40))
+points(field_e,col="orange",pch=21)
+field_f<-cbind(rep((141:195),15),rep((6:20),each=55))
+points(field_f,col="yellow",pch=21)
+
+
+#producing the different images for creating the animation####
+#we randomly select infected host
+inf_selec<-sample(dim(plant_coord)[1],40)
+infected<-plant_coord[inf_selec,]
+#among those infected host, we select infected host with a resistant strain
+rez_selec<-sample(inf_selec,3)
+rezi<-plant_coord[rez_selec,]
+
+
+#the hosts before infection
+png(filename="infdev01.png",width=800,height=550,units="px",res=220,
+    bg="white",pointsize=6)
+par(mar=c(0.1,0.1,3,0.1))
+plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
+     frame.plot=TRUE)
+title("Parcelle de la plante hôte",cex.main=2)
+dev.off()
 
 ###############################################################################
 #END
