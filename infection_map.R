@@ -784,31 +784,42 @@ par(op)
 op<-par(mar=c(0,0,1,0))
 
 #simulate the coordinates of the hosts in the field
-plant_coord<-cbind(rep((1:200),100),rep((1:100),each=200))
-plot(plant_coord,pch=21,bg="grey45",col="black",cex=1,ann=FALSE,axes=FALSE,
-     frame.plot=TRUE)
-field_a<-cbind(rep((1:50),12),rep((1:12),each=50))
-points(field_a,col="red",pch=21)
-field_b<-cbind(rep((41:70),30),rep((21:50),each=30))
-points(field_b,col="blue",pch=21)
-field_c<-cbind(rep((11:25),50),rep((51:100),each=15))
-points(field_c,col="green",pch=21)
-field_d<-cbind(rep((121:200),40),rep((61:100),each=80))
-points(field_d,col="violet",pch=21)
-field_e<-cbind(rep((86:125),50),rep((1:50),each=40))
-points(field_e,col="orange",pch=21)
-field_f<-cbind(rep((141:195),15),rep((6:20),each=55))
-points(field_f,col="yellow",pch=21)
+plant_coord<-cbind(rep((1:100),50),rep((1:50),each=100))
+plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
+     axes=FALSE,frame.plot=TRUE,cex=1.5)
+field_a<-cbind(rep((1:25),6),rep((1:6),each=25))
+points(field_a,col="red",pch=21,cex=1.5)
+field_b<-cbind(rep((21:35),20),rep((11:30),each=15))
+points(field_b,col="blue",pch=21,cex=1.5)
+field_c<-cbind(rep((6:14),25),rep((26:50),each=9))
+points(field_c,col="green",pch=21,cex=1.5)
+field_d<-cbind(rep((61:100),20),rep((31:50),each=40))
+points(field_d,col="violet",pch=21,cex=1.5)
+field_e<-cbind(rep((43:63),25),rep((1:25),each=21))
+points(field_e,col="orange",pch=21,cex=1.5)
+field_f<-cbind(rep((71:97),8),rep((3:10),each=27))
+points(field_f,col="yellow",pch=21,cex=1.5)
+
+fields<-rbind(field_a,field_b,field_c,field_d,field_e,field_f)
+points(fields,pch=21,bg="grey45",col="black",cex=1.5)
 
 
-#producing the different images for creating the animation####
-#we randomly select infected host
-inf_selec<-sample(dim(plant_coord)[1],40)
-infected<-plant_coord[inf_selec,]
-#among those infected host, we select infected host with a resistant strain
-rez_selec<-sample(inf_selec,3)
-rezi<-plant_coord[rez_selec,]
+#we randomly select infected host with sensitive pest
+inf_selec<-sample(dim(fields)[1],70)
+infected<-fields[inf_selec,]
 
+#we randomly select host infected with resistant pest to pesticide#1
+rez_selecA<-sample(dim(fields)[1],6)
+reziA<-fields[rez_selecA,]
+#we randomly select host infected with resistant pest to pesticide#2
+rez_selecB<-sample(dim(fields)[1],3)
+reziB<-fields[rez_selecB,]
+
+points(infected,pch=21,bg="mediumseagreen",col="black",cex=1.5)
+points(reziA,pch=21,bg="red",col="black",cex=1.5)
+points(reziB,pch=21,bg="mediumblue",col="black",cex=1.5)
+
+#export png 1000*700
 
 #the hosts before infection
 png(filename="infdev01.png",width=800,height=550,units="px",res=220,
