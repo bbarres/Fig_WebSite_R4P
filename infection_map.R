@@ -781,7 +781,7 @@ par(op)
 #The geographical management of pesticide resistance
 ###############################################################################
 
-op<-par(mar=c(0,0,1,0))
+op<-par(mar=c(0,0,0,0))
 
 #simulate the coordinates of the hosts in the field
 plant_coord<-cbind(rep((1:100),50),rep((1:50),each=100))
@@ -819,7 +819,7 @@ points(infected,pch=21,bg="mediumseagreen",col="black",cex=1.5)
 points(reziA,pch=21,bg="red",col="black",cex=1.5)
 points(reziB,pch=21,bg="mediumblue",col="black",cex=1.5)
 
-#export png 1000*700
+#export png 1100*550
 
 #the hosts before infection
 png(filename="infdev01.png",width=800,height=550,units="px",res=220,
