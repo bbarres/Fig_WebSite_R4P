@@ -784,42 +784,104 @@ par(op)
 op<-par(mar=c(0,0,0,0))
 
 #simulate the coordinates of the hosts in the field
-plant_coord<-cbind(rep((1:100),50),rep((1:50),each=100))
+plant_coord<-cbind(rep((1:40),25),rep((1:25),each=40))
 plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
-     axes=FALSE,frame.plot=TRUE,cex=1.5)
-field_a<-cbind(rep((1:25),6),rep((1:6),each=25))
-points(field_a,col="red",pch=21,cex=1.5)
-field_b<-cbind(rep((21:35),20),rep((11:30),each=15))
-points(field_b,col="blue",pch=21,cex=1.5)
-field_c<-cbind(rep((6:14),25),rep((26:50),each=9))
-points(field_c,col="green",pch=21,cex=1.5)
-field_d<-cbind(rep((61:100),20),rep((31:50),each=40))
-points(field_d,col="violet",pch=21,cex=1.5)
-field_e<-cbind(rep((43:63),25),rep((1:25),each=21))
-points(field_e,col="orange",pch=21,cex=1.5)
-field_f<-cbind(rep((71:97),8),rep((3:10),each=27))
-points(field_f,col="yellow",pch=21,cex=1.5)
+     axes=FALSE,frame.plot=TRUE,cex=2)
+field_a<-cbind(rep((1:12),3),rep((1:3),each=12))
+points(field_a,col="red",pch=21,cex=2)
+field_b<-cbind(rep((9:15),10),rep((6:15),each=7))
+points(field_b,col="blue",pch=21,cex=2)
+field_c<-cbind(rep((1:5),12),rep((13:24),each=5))
+points(field_c,col="green",pch=21,cex=2)
+field_d<-cbind(rep((21:40),10),rep((16:25),each=20))
+points(field_d,col="violet",pch=21,cex=2)
+field_e<-cbind(rep((19:28),12),rep((1:12),each=10))
+points(field_e,col="orange",pch=21,cex=2)
+field_f<-cbind(rep((31:40),4),rep((2:5),each=10))
+points(field_f,col="yellow",pch=21,cex=2)
 
 fields<-rbind(field_a,field_b,field_c,field_d,field_e,field_f)
-points(fields,pch=21,bg="grey45",col="black",cex=1.5)
+points(fields,pch=21,bg="grey45",col="black",cex=2)
 
 
 #we randomly select infected host with sensitive pest
-inf_selec<-sample(dim(fields)[1],70)
+inf_selec<-sample(dim(fields)[1],60)
 infected<-fields[inf_selec,]
 
 #we randomly select host infected with resistant pest to pesticide#1
-rez_selecA<-sample(dim(fields)[1],6)
+rez_selecA<-sample(dim(fields)[1],4)
 reziA<-fields[rez_selecA,]
 #we randomly select host infected with resistant pest to pesticide#2
 rez_selecB<-sample(dim(fields)[1],3)
 reziB<-fields[rez_selecB,]
 
-points(infected,pch=21,bg="mediumseagreen",col="black",cex=1.5)
-points(reziA,pch=21,bg="red",col="black",cex=1.5)
-points(reziB,pch=21,bg="mediumblue",col="black",cex=1.5)
+#plot of several fields with several resistant strains
+plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
+     axes=FALSE,frame.plot=TRUE,cex=2)
+points(fields,pch=21,bg="grey45",col="black",cex=2)
+points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
+points(reziA,pch=21,bg="red",col="black",cex=2)
+points(reziB,pch=21,bg="mediumblue",col="black",cex=2)
+#export .png 550*350
 
-#export png 1100*550
+#plot of several fields with resistant strain#1
+plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
+     axes=FALSE,frame.plot=TRUE,cex=2)
+points(fields,pch=21,bg="grey45",col="black",cex=2)
+points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
+points(reziA,pch=21,bg="red",col="black",cex=2)
+#export .png 550*350
+
+#plot of several fields with resistant strain#2
+plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
+     axes=FALSE,frame.plot=TRUE,cex=2)
+points(fields,pch=21,bg="grey45",col="black",cex=2)
+points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
+points(reziB,pch=21,bg="mediumblue",col="black",cex=2)
+#export .png 550*350
+
+#development of resistant strain#2 for temporal pesticide treatment example
+#new multiplication of resistant strains
+reziB2<-rbind(reziB,reziB+1,reziB-1,(cbind(reziB[,1]+1,reziB[,2])),
+              cbind(reziB[,1]-1,reziB[,2]),cbind(reziB[,1],reziB[,2]+1),
+              cbind(reziB[,1],reziB[,2]-1),cbind(reziB[,1]-1,reziB[,2]+1),
+              cbind(reziB[,1]+1,reziB[,2]-1))
+#we remove the individuals with coordinates falling outside the "field"
+reziB2<-reziB2[reziB2[,1]<51 & reziB2[,1]>0,]
+reziB2<-reziB2[reziB2[,2]<26 & reziB2[,2]>0,]
+#some neighbour hosts are not infected
+reziB2<-reziB2[!duplicated(reziB2),]
+infectivi<-round(dim(reziB2)[1]*0.8)
+reziB2<-reziB2[sample(1:dim(reziB2)[1],infectivi),]
+plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
+     axes=FALSE,frame.plot=TRUE,cex=2)
+points(fields,pch=21,bg="grey45",col="black",cex=2)
+#new infections with sensitive pests
+inf_selec<-sample(dim(fields)[1],40)
+infected<-fields[inf_selec,]
+points(infected,pch=21,bg="mediumseagreen",col="black",cex=2)
+#new infections with resistant#1 pests
+rez_selecA<-sample(dim(fields)[1],2)
+reziA<-fields[rez_selecA,]
+points(reziA,pch=21,bg="red",col="black",cex=2)
+#extension of resistan#2 strains
+points(reziB2,pch=21,bg="mediumblue",col="black",cex=2)
+#export .png 550*350
+
+#results of the 2nd treatment in the temportal example
+plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
+     axes=FALSE,frame.plot=TRUE,cex=2)
+points(fields,pch=21,bg="grey45",col="black",cex=2)
+points(reziA,pch=21,bg="red",col="black",cex=2)
+
+#plot of several fields that are all cured
+plot(plant_coord,pch=21,bg="transparent",col="transparent",ann=FALSE,
+     axes=FALSE,frame.plot=TRUE,cex=2)
+points(fields,pch=21,bg="grey45",col="black",cex=2)
+#export .png 550*350
+
+
+par(op)
 
 #the hosts before infection
 png(filename="infdev01.png",width=800,height=550,units="px",res=220,
