@@ -124,6 +124,54 @@ segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
 #export to .png 850 x 500 pixel
 
 
+#combined figure with DL50 and DL100 en Français
+op<-par(mar=c(5.1,4.2,3.6,2.1))
+temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
+if (temp[temp$dose==0,]$dead!=0) {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+} else {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+}
+plot(temp.mod,xlim=c(0,100000),type="obs",broken=FALSE,axes=FALSE,
+     xlab=expression(paste("Concentration en pesticide (échelle log) ",
+                           µg.litre^-1)),
+     ylab="Trait phénotypique",cex.lab=1.5,bty="n",
+     col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+     type="none",col=colist[as.numeric(temp$Rgeno[1])])
+for (i in 2:dim(clone_gen)[1]) {
+  temp<-dummydat[dummydat$ind_ID==clone_gen[i,1] & dummydat$tota!=0,]
+  if (temp[temp$dose==0,]$dead!=0) {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  } else {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  }
+  plot(temp.mod,xlim=c(0,100000),type="obs",add=TRUE,
+       col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+  plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+       type="none",col=colist[as.numeric(temp$Rgeno[1])])
+}
+par(op)
+
+axis(1,lwd=4,las=1)
+axis(2,lwd=4,las=1)
+box(bty="l",lwd=4)
+segments(DL50list[1],-0.02,DL50list[1],0.5,lwd=3,col=colist[1],lty=2)
+segments(DL50list[2],-0.02,DL50list[2],0.5,lwd=3,col=colist[2],lty=2)
+segments(DL50list[3],-0.02,DL50list[3],0.5,lwd=3,col=colist[3],lty=2)
+segments(0.5,0.5,100000,0.5,lwd=3,col="blue",lty=2)
+segments(DL100list[1],-0.02,DL100list[1],1,lwd=3,col=colist[1],lty=2)
+segments(DL100list[2],-0.02,DL100list[2],1,lwd=3,col=colist[2],lty=2)
+segments(DL100list[3],-0.02,DL100list[3],1,lwd=3,col=colist[3],lty=2)
+segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
+
+#export to .png 850 x 500 pixel
+
+
 ###############################################################################
 #English version of the figure
 ###############################################################################
@@ -229,6 +277,53 @@ par(op)
 axis(1,lwd=4,las=1)
 axis(2,lwd=4,las=1)
 box(bty="l",lwd=4)
+segments(DL100list[1],-0.02,DL100list[1],1,lwd=3,col=colist[1],lty=2)
+segments(DL100list[2],-0.02,DL100list[2],1,lwd=3,col=colist[2],lty=2)
+segments(DL100list[3],-0.02,DL100list[3],1,lwd=3,col=colist[3],lty=2)
+segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
+
+#export to .png 850 x 500 pixel
+
+#combined figure with DL50 and DL100 in English
+op<-par(mar=c(5.1,4.2,3.6,2.1))
+temp<-dummydat[dummydat$ind_ID==clone_gen[1,1] & dummydat$total!=0,]
+if (temp[temp$dose==0,]$dead!=0) {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+} else {
+  temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                type="binomial")
+}
+plot(temp.mod,xlim=c(0,100000),type="obs",broken=FALSE,axes=FALSE,
+     xlab=expression(paste("Pesticide concentration (log scale) ",
+                           µg.litre^-1)),
+     ylab="Phenotypic trait",cex.lab=1.5,bty="n",
+     col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+     type="none",col=colist[as.numeric(temp$Rgeno[1])])
+for (i in 2:dim(clone_gen)[1]) {
+  temp<-dummydat[dummydat$ind_ID==clone_gen[i,1] & dummydat$tota!=0,]
+  if (temp[temp$dose==0,]$dead!=0) {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  } else {
+    temp.mod<-drm(dead/total~dose,weights=total,data=temp,fct=LN.2(),
+                  type="binomial")
+  }
+  plot(temp.mod,xlim=c(0,100000),type="obs",add=TRUE,
+       col=colist[as.numeric(temp$Rgeno[1])],pch=19)
+  plot(temp.mod,xlim=c(0,100000),add=TRUE,lwd=4,
+       type="none",col=colist[as.numeric(temp$Rgeno[1])])
+}
+par(op)
+
+axis(1,lwd=4,las=1)
+axis(2,lwd=4,las=1)
+box(bty="l",lwd=4)
+segments(DL50list[1],-0.02,DL50list[1],0.5,lwd=3,col=colist[1],lty=2)
+segments(DL50list[2],-0.02,DL50list[2],0.5,lwd=3,col=colist[2],lty=2)
+segments(DL50list[3],-0.02,DL50list[3],0.5,lwd=3,col=colist[3],lty=2)
+segments(0.5,0.5,100000,0.5,lwd=3,col="blue",lty=2)
 segments(DL100list[1],-0.02,DL100list[1],1,lwd=3,col=colist[1],lty=2)
 segments(DL100list[2],-0.02,DL100list[2],1,lwd=3,col=colist[2],lty=2)
 segments(DL100list[3],-0.02,DL100list[3],1,lwd=3,col=colist[3],lty=2)
