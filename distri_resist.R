@@ -26,12 +26,12 @@ mtext(side=2,text="Fréquence dans la population",cex=1.5,line=1.5)
 #the distribution of the quantitative resistance in a natural population
 #with no tick and arrows at the end of axis
 curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=5,xlab="",ylab="",n=10000,
-      main="DISTRIBUTION DES INDIVIDUS DANS UNE POPULATION NATURELLE 
-EN FONCTION DE LEUR RESISTANCE A UN PESTICIDE",cex.main=1,
+      main="Distribution des individus dans une population naturelle  
+en fonction de leur sensibilité intrinsèque à un PPP",cex.main=1.5,
       cex.axis=1,cex.lab=1.5,bty="l",axes=FALSE)
 u <- par("usr") 
 arrows(u[1],u[3],u[2],u[3],code=2,xpd=TRUE,lwd=8,angle=15)
-mtext(side=1,text="Résistance",cex=1.5,line=1.5)
+mtext(side=1,text="Dose létale individuelle",cex=1.5,line=1.5)
 arrows(u[1],u[3],u[1],u[4],code=2,xpd=TRUE,lwd=8,angle=15)
 mtext(side=2,text="Fréquence dans la population",cex=1.5,line=1.5)
 # #adding the mean of the distribution
@@ -61,10 +61,10 @@ curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=8,add=TRUE)
 #another version of the distribution of the quantitative resistance in 
 #a natural population, with tick on axis and gradation
 curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=5,
-      xlab="Résistance",
+      xlab="Dose létale individuelle",
       ylab="Fréquence dans la population",n=10000,
-      main="DISTRIBUTION DES INDIVIDUS DANS UNE POPULATION NATURELLE 
-EN FONCTION DE LEUR RESISTANCE A UN PESTICIDE",cex.main=1,
+      main="Distribution des individus dans une population naturelle  
+en fonction de leur sensibilité intrinsèque à un PPP",cex.main=1.5,
       cex.axis=1,cex.lab=1.5,bty="l",axes=FALSE)
 axis(1,lwd=8)
 axis(2,lwd=8)
@@ -101,12 +101,12 @@ curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=8,add=TRUE)
 #first a simple plot of the distribution with no tick and arrows at the 
 #end of axis
 curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=8,xlab="",ylab="",n=10000,
-      cex.lab=1.5,bty="l",main="INDIVIDUALS RANKED BASED ON THEIR 
-RESISTANCE TO A PESTICIDE",
+      cex.lab=1.5,bty="l",main="Individuals ranked based on their 
+intrinsic sensitivity to a PPP",
       cex.main=1,cex.axis=1,axes=FALSE)
 u <- par("usr") 
 arrows(u[1],u[3],u[2],u[3],code=2,xpd=TRUE,lwd=8,angle=15)
-mtext(side=1,text="Resistance",cex=1.5,line=1.5)
+mtext(side=1,text="Individual lethal dose",cex=1.5,line=1.5)
 arrows(u[1],u[3],u[1],u[4],code=2,xpd=TRUE,lwd=8,angle=15)
 mtext(side=2,text="Frequency in the population",cex=1.5,line=1.5)
 #export png 870 x 550
@@ -114,12 +114,12 @@ mtext(side=2,text="Frequency in the population",cex=1.5,line=1.5)
 #the distribution of the quantitative resistance in a natural population
 #with no tick and arrows at the end of axis
 curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=5,xlab="",ylab="",n=10000,
-      main="DISTRIBUTION OF INDIVIDUALS FROM A NATURAL POPULATION 
-ACCORDING TO THEIR RESISTANCE TO A PESTICIDE",cex.main=1,
+      main="Distribution of individuals from a natural population 
+according to their intrinsic sensitivity to a PPP",cex.main=1.5,
       cex.axis=1,cex.lab=1.5,bty="l",axes=FALSE)
 u <- par("usr") 
 arrows(u[1],u[3],u[2],u[3],code=2,xpd=TRUE,lwd=8,angle=15)
-mtext(side=1,text="Resistance",cex=1.5,line=1.5)
+mtext(side=1,text="Individual lethal dose",cex=1.5,line=1.5)
 arrows(u[1],u[3],u[1],u[4],code=2,xpd=TRUE,lwd=8,angle=15)
 mtext(side=2,text="Frequency in the population",cex=1.5,line=1.5)
 # #adding the mean of the distribution
@@ -149,10 +149,10 @@ curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=8,add=TRUE)
 #another version of the distribution of the quantitative resistance in 
 #a natural population, with tick on axis and gradation
 curve(dnorm(x, mean=20, sd=7),from=0,to=40,lwd=5,
-      xlab="Resistance",
+      xlab="Individual lethal dose",
       ylab="Frequency in the population",n=10000,
-      main="DISTRIBUTION OF INDIVIDUALS FROM A NATURAL POPULATION 
-ACCORDING TO THEIR RESISTANCE TO A PESTICIDE",cex.main=1,
+      main="Distribution of individuals from a natural population 
+according to their intrinsic sensitivity to a PPP",cex.main=1.5,
       cex.axis=1,cex.lab=1.5,bty="l",axes=FALSE)
 axis(1,lwd=8)
 axis(2,lwd=8)
