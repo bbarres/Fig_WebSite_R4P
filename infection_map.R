@@ -8,9 +8,6 @@
 library(animation)
 ani.options(convert ="C:\\'Program Files'\\ImageMagick-7.0.5-Q16\\convert.exe")
 
-#setting the working directory
-setwd("~/Work/Rfichiers/Githuber/Fig_WebSite_R4P")
-
 
 ###############################################################################
 #The epidemic figure in French
@@ -46,7 +43,7 @@ infectivi<-round(dim(rezi2)[1]*0.8)
 rezi2<-rezi2[sample(1:dim(rezi2)[1],infectivi),]
 
 #the hosts before infection
-png(filename="infdev01.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev01.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -55,7 +52,7 @@ title(" ",cex.main=2)
 dev.off()
 
 #the infected hosts
-png(filename="infdev02.png",width=800,height=550,units="px",res=220,
+png(filename="outputinfdev02.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -69,7 +66,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev03.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev03.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -87,7 +84,7 @@ text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #infected hosts after treatment
-png(filename="infdev04.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev04.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -103,7 +100,7 @@ dev.off()
 #then new infection and multiplication of resistant strains
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev05.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev05.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -117,7 +114,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev06.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev06.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -135,7 +132,7 @@ text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev07.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev07.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -162,7 +159,7 @@ infectivi<-round(dim(rezi3)[1]*0.8)
 rezi3<-rezi3[sample(1:dim(rezi3)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev08.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev08.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -176,7 +173,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev09.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev09.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -194,7 +191,7 @@ text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev10.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev10.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -221,7 +218,7 @@ infectivi<-round(dim(rezi4)[1]*0.8)
 rezi4<-rezi4[sample(1:dim(rezi4)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev11.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev11.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2
@@ -236,7 +233,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev12.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev12.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2
@@ -255,7 +252,7 @@ text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev13.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev13.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -282,7 +279,7 @@ infectivi<-round(dim(rezi5)[1]*0.8)
 rezi5<-rezi5[sample(1:dim(rezi5)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev14.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev14.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -296,7 +293,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev15.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev15.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -314,7 +311,7 @@ text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev16.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev16.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -341,7 +338,7 @@ infectivi<-round(dim(rezi6)[1]*0.8)
 rezi6<-rezi6[sample(1:dim(rezi6)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev17.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev17.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -355,7 +352,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev18.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev18.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -373,7 +370,7 @@ text(36,27,labels="bio-agresseur résistant",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev19.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev19.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -389,7 +386,7 @@ dev.off()
 
 #creating the .gif image####
 oopt = ani.options(interval=2)
-im.convert('infdev*.png',output="selecR.gif",convert="convert")
+im.convert('output/infdev*.png',output="output/selecR.gif",convert="convert")
 ani.options(oopt)
 
 par(op)
@@ -428,7 +425,7 @@ infectivi<-round(dim(rezi2)[1]*0.8)
 rezi2<-rezi2[sample(1:dim(rezi2)[1],infectivi),]
 
 #the hosts before infection
-png(filename="infdev01.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev01.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -437,7 +434,7 @@ title(" ",cex.main=2)
 dev.off()
 
 #the infected hosts
-png(filename="infdev02.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev02.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -451,7 +448,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev03.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev03.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -469,7 +466,7 @@ text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #infected hosts after treatment
-png(filename="infdev04.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev04.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -485,7 +482,7 @@ dev.off()
 #then new infection and multiplication of resistant strains
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev05.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev05.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -499,7 +496,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev06.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev06.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -517,7 +514,7 @@ text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev07.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev07.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -544,7 +541,7 @@ infectivi<-round(dim(rezi3)[1]*0.8)
 rezi3<-rezi3[sample(1:dim(rezi3)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev08.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev08.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -558,7 +555,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev09.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev09.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -576,7 +573,7 @@ text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev10.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev10.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -603,7 +600,7 @@ infectivi<-round(dim(rezi4)[1]*0.8)
 rezi4<-rezi4[sample(1:dim(rezi4)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev11.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev11.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2
@@ -618,7 +615,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev12.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev12.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2
@@ -637,7 +634,7 @@ text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev13.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev13.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -664,7 +661,7 @@ infectivi<-round(dim(rezi5)[1]*0.8)
 rezi5<-rezi5[sample(1:dim(rezi5)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev14.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev14.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -678,7 +675,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev15.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev15.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -696,7 +693,7 @@ text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev16.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev16.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -723,7 +720,7 @@ infectivi<-round(dim(rezi6)[1]*0.8)
 rezi6<-rezi6[sample(1:dim(rezi6)[1],infectivi),]
 inf_selec<-sample(dim(plant_coord)[1],60)
 infected<-plant_coord[inf_selec,]
-png(filename="infdev17.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev17.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -737,7 +734,7 @@ points(35,27,cex=2,pch=21,col="black",bg="red",xpd=TRUE)
 text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
-png(filename="infdev18.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev18.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -755,7 +752,7 @@ text(36,27,labels="resistant pest",cex=1,xpd=TRUE,adj=c(0,NA))
 dev.off()
 
 #new treatment
-png(filename="infdev19.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev19.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,
@@ -771,7 +768,8 @@ dev.off()
 
 #creating the .gif image####
 oopt = ani.options(interval=2)
-im.convert('infdev*.png',output="selecR_ENG.gif",convert="convert")
+im.convert('output/infdev*.png',output="output/selecR_ENG.gif",
+           convert="convert")
 ani.options(oopt)
 
 par(op)
@@ -884,7 +882,7 @@ points(fields,pch=21,bg="grey45",col="black",cex=2)
 par(op)
 
 #the hosts before infection
-png(filename="infdev01.png",width=800,height=550,units="px",res=220,
+png(filename="output/infdev01.png",width=800,height=550,units="px",res=220,
     bg="white",pointsize=6)
 par(mar=c(0.1,0.1,3,0.1))
 plot(plant_coord,pch=21,bg="grey45",col="black",cex=2,ann=FALSE,axes=FALSE,

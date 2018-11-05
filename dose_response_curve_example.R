@@ -8,16 +8,13 @@
 library(drc)
 library(plotrix)
 
-#setting the working directory
-setwd("~/Work/Rfichiers/Githuber/Fig_WebSite_R4P")
-
 
 ###############################################################################
 #French version of the figure
 ###############################################################################
 
 #load the dataset
-dummydat<-read.table("dummy_drcdata.txt",header=T,sep="\t")
+dummydat<-read.table("data/dummy_drcdata.txt",header=T,sep="\t")
 
 #let's isolate the name of the clone and their genotype for the R81T resistance
 clone_gen<-dummydat[dummydat$dose==0, 1:2]
@@ -177,7 +174,7 @@ segments(0.5,1,100000,1,lwd=3,col="blue",lty=2)
 ###############################################################################
 
 #load the dataset
-dummydat<-read.table("dummy_drcdata.txt",header=T,sep="\t")
+dummydat<-read.table("data/dummy_drcdata.txt",header=T,sep="\t")
 
 #let's isolate the name of the clone and their genotype for the R81T resistance
 clone_gen<-dummydat[dummydat$dose==0, 1:2]
